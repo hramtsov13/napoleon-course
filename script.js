@@ -3,7 +3,7 @@ let textString =
 
 let textArray = textString.split(" ");
 
-setInterval(() => {
+arrayDelete = setInterval(() => {
   let getRandom = Math.floor(Math.random() * Math.floor(textArray.length)); //get random object from array
 
   textArray.splice(getRandom, 1); //get index of random element
@@ -11,4 +11,7 @@ setInterval(() => {
   let newText = textArray.join(" ");
 
   document.getElementById("paragraph").innerHTML = newText;
-}, 100);
+  if (textArray.length == 0) {
+    clearInterval(arrayDelete);
+  }
+}, 10);
